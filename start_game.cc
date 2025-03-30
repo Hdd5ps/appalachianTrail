@@ -98,7 +98,7 @@ void start_game()
         }
         else
         {
-            cout << "\nYou have been on the trail too long\nYour family dies in the first blizzard of winter." << endl;
+            cout << "\nYou have been on the trail too long\nYou die in the first blizzard of winter." << endl;
             dying("", game_variables);
             break;
         }

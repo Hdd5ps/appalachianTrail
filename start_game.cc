@@ -98,8 +98,12 @@ void start_game()
         }
         else
         {
+<<<<<<< HEAD
             cout << "\nYou have been on the Appalachian Trail for too long.\n"
                  << "You and your group succumb to the harsh winter conditions." << endl;
+=======
+            cout << "\nYou have been on the trail too long\nYou die in the first blizzard of winter." << endl;
+>>>>>>> dc11e1a30e7b57705d3c7c391a2bd67c20fdeaa6
             dying("", game_variables);
             break;
         }

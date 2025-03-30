@@ -26,18 +26,18 @@ map<string, int> riders(map<string, int>& game_variables)
 
     if (getRandomNumber(1, 10) < 3)
     {
-        cout << "Riders ahead. They don't look hostile." << endl;
+        cout << "Strangers ahead. They don't look hostile." << endl;
         riders_hostile = false;
     }
     else
     {
-        cout << "Riders ahead. They look hostile." << endl;
+        cout << "Strangers ahead. They look hostile." << endl;
         riders_hostile = true;
     }
 
     while (true)
     {
-        cout << "\nTactics\n(1) Run (2) Attack (3) Continue (4) Circle Wagons: ";
+        cout << "\nTactics\n(1) Run (2) Attack (3) Continue (4) Circle: ";
         cin >> my_tactic;
 
         if (cin.fail() || my_tactic < 1 || my_tactic > 4)
@@ -66,16 +66,16 @@ map<string, int> riders(map<string, int>& game_variables)
             game_variables["ammunition"] -= (my_shooting * 40) + 80;
             if (my_shooting == 1)
             {
-                cout << "Nice Shooting Tex - You drove them off." << endl;
+                cout << "You drove them off." << endl;
             }
             else if (my_shooting > 4)
             {
-                cout << "Lousy Shot - You got knifed\nYou have to see Ol' Doc Blanchard." << endl;
+                cout << "You got knifed\nYou have to see a doctor." << endl;
                 game_variables["injury"] = 1;
             }
             else
             {
-                cout << "Kinda slow with your Colt .45" << endl;
+                cout << "Kinda slow" << endl;
             }
         }
         else if (my_tactic == 3)
@@ -100,16 +100,16 @@ map<string, int> riders(map<string, int>& game_variables)
             game_variables["mileage"] -= 25;
             if (my_shooting == 1)
             {
-                cout << "Nice Shooting Tex - You drove them off." << endl;
+                cout << "You drove them off." << endl;
             }
             else if (my_shooting > 4)
             {
-                cout << "Lousy Shot - You got knifed\nYou have to see Ol' Doc Blanchard." << endl;
+                cout << "You got knifed\nYou have to see a doctor." << endl;
                 game_variables["injury"] = 1;
             }
             else
             {
-                cout << "Kinda slow with your Colt .45" << endl;
+                cout << "Kinda slow" << endl;
             }
         }
     }
@@ -144,16 +144,16 @@ map<string, int> riders(map<string, int>& game_variables)
 
     if (riders_hostile)
     {
-        cout << "The Riders were hostile - Check for losses." << endl;
+        cout << "The strangers were hostile - Check for losses." << endl;
         if (game_variables["ammunition"] < 1)
         {
-            cout << "You ran out of bullets and got massacred by the riders!" << endl;
+            cout << "You got attacked by the strangers!" << endl;
             dying("injury", game_variables);
         }
     }
     else
     {
-        cout << "The Riders were friendly, but check for possible losses." << endl;
+        cout << "The strangers were friendly, but check for possible losses." << endl;
     }
 
     return game_variables;

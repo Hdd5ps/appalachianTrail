@@ -21,7 +21,7 @@ void start_game()
 
     // Ask if the user needs instructions
     string input;
-    cout << "Do you need instructions (yes/no): ";
+    cout << "Do you need instructions on how to navigate the Appalachian Trail (yes/no): ";
     cin >> input;
     if (input == "yes")
     {
@@ -34,20 +34,20 @@ void start_game()
         "August 2", "August 16", "August 31", "September 13", "September 27", "October 11", "October 25",
         "November 8", "November 22", "December 6", "December 20"};
 
-    // Ask the user for their shooting skill level
-    cout << "\nHow good a shot are you with your rifle?" << endl;
-    cout << "\t(1) ace marksman,  (2) good shot,  (3) fair to middlin'" << endl;
-    cout << "\t(4) need more practice,  (5) shaky knees" << endl;
-    int my_shooting;
+    // Ask the user for their hiking skill level
+    cout << "\nHow experienced are you as a hiker?" << endl;
+    cout << "\t(1) Expert hiker,  (2) Experienced,  (3) Intermediate" << endl;
+    cout << "\t(4) Beginner,  (5) First time on a trail" << endl;
+    int my_hiking_skill;
     cout << "Enter one of the above -- the better you claim you are, the\n"
-         << "faster you'll have to be with your gun to be successful: ";
-    cin >> my_shooting;
+         << "more prepared you'll need to be for the challenges ahead: ";
+    cin >> my_hiking_skill;
 
-    if (my_shooting > 5 || my_shooting < 1)
+    if (my_hiking_skill > 5 || my_hiking_skill < 1)
     {
-        my_shooting = 0;
+        my_hiking_skill = 0;
     }
-    game_variables["shooting_expert_level"] = my_shooting;
+    game_variables["hiking_skill_level"] = my_hiking_skill;
 
     // Perform initial purchases
     game_variables = initial_purchases(game_variables);
@@ -98,7 +98,8 @@ void start_game()
         }
         else
         {
-            cout << "\nYou have been on the trail too long\nYour family dies in the first blizzard of winter." << endl;
+            cout << "\nYou have been on the Appalachian Trail for too long.\n"
+                 << "You and your group succumb to the harsh winter conditions." << endl;
             dying("", game_variables);
             break;
         }

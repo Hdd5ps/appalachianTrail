@@ -20,16 +20,16 @@ map<string, int> mountains(map<string, int>& game_variables)
     {
         if (game_variables["south_pass_flag"])
         {
-            // Check for a blizzard in the mountains
+            // Check for a storm in the mountains
             if (getRandomNumber(1, 100) < 81)
             {
-                cout << "You have been caught in a Blizzard in the Mountain Pass - Time and Supplies lost." << endl;
+                cout << "You have been caught in a severe storm in the Appalachian Mountains - Time and Supplies lost." << endl;
                 game_variables["supplies"] -= 10;
                 game_variables["mileage"] -= 50;
             }
             else
             {
-                cout << "You made it safely through the South Pass -- No Snow" << endl;
+                cout << "You made it safely through the mountain pass without encountering any storms." << endl;
                 if (mileage < 1700)
                 {
                     game_variables["South_Pass_Mileage_Flag"] = 1;
@@ -39,27 +39,26 @@ map<string, int> mountains(map<string, int>& game_variables)
         }
         else
         {
-            cout << "\nYou find yourself in some rugged mountains." << endl;
+            cout << "\nYou find yourself in some rugged sections of the Appalachian Mountains." << endl;
             game_variables["mileage"] -= 60;
 
-            // Check for a blizzard in rugged mountains (33% chance)
+            // Check for a storm in rugged mountains (33% chance)
             if (getRandomNumber(1, 100) < 34)
             {
-                cout << "You have been caught in a Blizzard in the Mountain Pass - Time and Supplies lost." << endl;
+                cout << "You have been caught in a severe storm in the Appalachian Mountains - Time and Supplies lost." << endl;
                 game_variables["supplies"] -= 10;
                 game_variables["mileage"] -= 50;
             }
             else if (getRandomNumber(1, 100) > 10)
             {
-                cout << "\nWagon Damaged! - Lose time and supplies.\nThe going gets slow." << endl;
+                cout << "\nYour gear was damaged! - Lose time and supplies.\nThe trail becomes more difficult to navigate." << endl;
                 game_variables["supplies"] -= 5;
-                game_variables["ammunition"] -= 200;
                 game_variables["clothing"] -= getRandomNumber(1, 40);
                 game_variables["mileage"] -= 30 + getRandomNumber(1, 40);
             }
             else
             {
-                cout << "\nYou got lost - lose valuable time trying to find the trail!" << endl;
+                cout << "\nYou got lost in the dense forest - lose valuable time trying to find the trail!" << endl;
                 game_variables["mileage"] -= 60;
             }
         }
